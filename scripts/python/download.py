@@ -24,6 +24,7 @@
 
 import requests # HTTPS requests
 from datetime import datetime
+from time import sleep
 from threading import Thread # Threading
 import threading
 from queue import Queue # Queue to threading - https://stackoverflow.com/questions/19369724/the-right-way-to-limit-maximum-number-of-threads-running-at-once
@@ -32,8 +33,8 @@ import re # Regular expression operations
 
 ########################### Parameters ###########################
 ##################################################################
-idRange = range(1,500) # Range of downloaded id's.
-maximumThreads = 100 # Maximum numbe of threads. (Requests to server)
+idRange = range(3049364,7000000) # Range of downloaded id's.
+maximumThreads = 200 # Maximum numbe of threads. (Requests to server)
 res = open("res_id_" + str(idRange[0]) + "_" + str(idRange[len(idRange)-1]) , "x") # File to store RES data.
 crnNaceMapping = open("crnNaceMapping_id_" + str(idRange[0]) + "_" + str(idRange[len(idRange)-1]) ,"x") # File to store registration numbre / NACE mapping
 logFile = open("download.log","a")# Log file
@@ -76,8 +77,10 @@ def requestServer(id, res, crnNaceMapping, logFile):
 			creationDate = creationDateStr[93:][:-7]
 			
 			# Datum zániku
-			dissolutionDateStr = str(re.findall("Datum zániku:</td>\r\n        <td width=\"20\"></td>\r\n        <td width=\"400\" align=\"left\">[^\r\n]+", responseText))
-			dissolutionDate = dissolutionDateStr[93:][:-7] if dissolutionDateStr[93:][:-7] == "&nbsp" else ""
+			dissolutionDateStr = str(re.findall("Datum zániku:</td>\r\n        <td width=\"20\"></td>\r\n        <td width=\"400\" align=\"left\">[^\r\n]+", responseText))			
+			dissolutionDate = dissolutionDateStr[93:][:-7]
+			if dissolutionDate == "&nbsp;":
+				dissolutionDate = ""
 			
 			# Adresa
 			adressStr = str(re.findall("Adresa:</td>\r\n        <td width=\"20\"></td>\r\n        <td width=\"400\" align=\"left\">[^\r\n]+", responseText))
@@ -122,9 +125,10 @@ def requestServer(id, res, crnNaceMapping, logFile):
 for id in idRange:
 	t = Thread(target=requestServer, args=(id, res, crnNaceMapping,logFile,))
 	t.start()
+	# print(threading.activeCount())
+	while threading.activeCount() > maximumThreads:
+		t.join()
 
-t.join()
-	
 print("Main thread terminated.")
 
 #res.close()
