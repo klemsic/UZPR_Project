@@ -1,0 +1,74 @@
+\dt uzpr20_g.*
+                       List of relations
+  Schema  |               Name               | Type  |  Owner   
+----------+----------------------------------+-------+----------
+ uzpr20_g | business_register                | table | uzpr20_g
+ uzpr20_g | company_nace_mapping             | table | uzpr20_g
+ uzpr20_g | electronic_registration_of_sales | table | uzpr20_g
+ uzpr20_g | employee_size                    | table | uzpr20_g
+ uzpr20_g | nace                             | table | uzpr20_g
+
+
+\d+ business_register
+                                            Table "uzpr20_g.business_register"
+         Column         |          Type          | Collation | Nullable | Default | Storage  | Stats target | Description 
+------------------------+------------------------+-----------+----------+---------+----------+--------------+-------------
+ id                     | integer                |           | not null |         | plain    |              | 
+ identification_number  | character(8)           |           | not null |         | extended |              | 
+ company_name           | character varying(500) |           | not null |         | extended |              | 
+ legal_form             | character(3)           |           | not null |         | extended |              | 
+ establishment          | date                   |           | not null |         | plain    |              | 
+ dissolution            | date                   |           |          |         | plain    |              | 
+ adress                 | character varying(200) |           | not null |         | extended |              | 
+ basic_territorial_unit | integer                |           | not null |         | plain    |              | 
+ employee_size          | character(3)           |           | not null |         | extended |              | 
+ institutional_sector   | character(5)           |           | not null |         | extended |              | 
+ adress_point           | integer                |           |          |         | plain    |              | 
+Indexes:
+    "business_register_pkey" PRIMARY KEY, btree (identification_number)
+Foreign-key constraints:
+    "business_register_employee_size_fkey" FOREIGN KEY (employee_size) REFERENCES employee_size(code)
+Referenced by:
+    TABLE "company_nace_mapping" CONSTRAINT "company_nace_mapping_identification_number_fkey" FOREIGN KEY (identification_number) REFERENCES business_register(identification_number)
+
+
+
+\d+ uzpr20_g.company_nace_mapping
+                                         Table "uzpr20_g.company_nace_mapping"
+        Column         |         Type          | Collation | Nullable | Default | Storage  | Stats target | Description 
+-----------------------+-----------------------+-----------+----------+---------+----------+--------------+-------------
+ identification_number | character(8)          |           | not null |         | extended |              | 
+ nace_code             | character varying(10) |           | not null |         | extended |              | 
+Indexes:
+    "company_nace_mapping_pkey" PRIMARY KEY, btree (identification_number, nace_code)
+Foreign-key constraints:
+    "company_nace_mapping_identification_number_fkey" FOREIGN KEY (identification_number) REFERENCES business_register(identification_number)
+    "company_nace_mapping_nace_code_fkey" FOREIGN KEY (nace_code) REFERENCES nace(code)
+
+
+\d+ uzpr20_g.electronic_registration_of_sales
+                              Table "uzpr20_g.electronic_registration_of_sales"
+   Column   |         Type          | Collation | Nullable | Default | Storage  | Stats target | Description 
+------------+-----------------------+-----------+----------+---------+----------+--------------+-------------
+ nace       | character varying(10) |           | not null |         | extended |              | 
+ start_date | date                  |           | not null |         | plain    |              | 
+ end_date   | date                  |           |          |         | plain    |              | 
+Indexes:
+    "electronic_registration_of_sales_pkey" PRIMARY KEY, btree (nace)
+Foreign-key constraints:
+    "electronic_registration_of_sales_nace_fkey" FOREIGN KEY (nace) REFERENCES nace(code)
+
+\d+ nace
+                                             Table "uzpr20_g.nace"
+   Column    |          Type          | Collation | Nullable | Default | Storage  | Stats target | Description 
+-------------+------------------------+-----------+----------+---------+----------+--------------+-------------
+ level       | integer                |           |          |         | plain    |              | 
+ code        | character varying(10)  |           | not null |         | extended |              | 
+ description | character varying(200) |           | not null |         | extended |              | 
+Indexes:
+    "nace_pkey" PRIMARY KEY, btree (code)
+Referenced by:
+    TABLE "company_nace_mapping" CONSTRAINT "company_nace_mapping_nace_code_fkey" FOREIGN KEY (nace_code) REFERENCES nace(code)
+    TABLE "electronic_registration_of_sales" CONSTRAINT "electronic_registration_of_sales_nace_fkey" FOREIGN KEY (nace) REFERENCES nace(code)
+
+
