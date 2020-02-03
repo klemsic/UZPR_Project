@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{\332vod}{}% 1
+\BOOKMARK [1][-]{section.2}{Zdroje dat}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{CS\332}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{CS\332 - NACE}{subsection.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.2}{C\332ZK - R\332IAN}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.1}{VDP}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Slu\236by}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.3}{VFR}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.4}{CSV}{subsection.2.2}% 9
+\BOOKMARK [1][-]{section.3}{Software}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{PostgreSQL}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Python}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Praktick\341 c\341st}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Sta\236en\355 dat}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Tvorba tabulek}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.3}{Struktura datab\341ze}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Tabulka business register}{subsection.4.3}% 17
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Tabulka company nace mapping}{subsection.4.3}% 18
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Tabulka electronic registration of sales}{subsection.4.3}% 19
+\BOOKMARK [3][-]{subsubsection.4.3.4}{Tabulka nace}{subsection.4.3}% 20
+\BOOKMARK [1][-]{section.5}{Dotazy}{}% 21
+\BOOKMARK [1][-]{section.6}{V\375stupy projektu}{}% 22
+\BOOKMARK [1][-]{section.7}{Z\341ver}{}% 23
+\BOOKMARK [1][-]{section.8}{Reference}{}% 24

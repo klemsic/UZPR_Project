@@ -1,0 +1,25 @@
+\babel@toc {czech}{}
+\contentsline {section}{\numberline {1}Úvod}{2}{section.1}%
+\contentsline {section}{\numberline {2}Zdroje dat}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}ČSÚ}{2}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}ČSÚ - NACE}{2}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}ČÚZK - RÚIAN}{2}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}VDP}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Služby}{3}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}VFR}{3}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}CSV}{4}{subsubsection.2.2.4}%
+\contentsline {section}{\numberline {3}Software}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}PostgreSQL}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Python}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Praktická část}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Stažení dat}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Tvorba tabulek}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Struktura databáze}{6}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Tabulka business register}{6}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Tabulka company nace mapping}{6}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Tabulka electronic registration of sales}{7}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Tabulka nace}{7}{subsubsection.4.3.4}%
+\contentsline {section}{\numberline {5}Dotazy}{7}{section.5}%
+\contentsline {section}{\numberline {6}Výstupy projektu}{10}{section.6}%
+\contentsline {section}{\numberline {7}Závěr}{13}{section.7}%
+\contentsline {section}{\numberline {8}Reference}{13}{section.8}%
